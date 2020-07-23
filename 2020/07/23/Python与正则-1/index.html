@@ -5,13 +5,17 @@
   
 
   
-  <title>Hexo</title>
+  <title>Python与正则 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Part.1 正则基础语法1.1 元字符 “ + “(加号):匹配前面的表达式一次或多次 123456789foo &#x3D; re.compile(r&#39;Pyth+on&#39;)s1 &#x3D; &quot;Python&quot;s2 &#x3D; &quot;Pythhon&quot;s3 &#x3D; &quot;Pyton&quot;                    #Outputs:print(foo.findall(s1)) #[&#39;Python&#39;]print(foo.finda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python与正则">
+<meta property="og:url" content="http://yoursite.com/2020/07/23/Python%E4%B8%8E%E6%AD%A3%E5%88%99-1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Part.1 正则基础语法1.1 元字符 “ + “(加号):匹配前面的表达式一次或多次 123456789foo &#x3D; re.compile(r&#39;Pyth+on&#39;)s1 &#x3D; &quot;Python&quot;s2 &#x3D; &quot;Pythhon&quot;s3 &#x3D; &quot;Pyton&quot;                    #Outputs:print(foo.findall(s1)) #[&#39;Python&#39;]print(foo.finda">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-23T13:01:16.000Z">
+<meta property="article:modified_time" content="2020-07-23T13:01:34.486Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -62,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Python与正则-1" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Python与正则-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/23/Python%E4%B8%8E%E6%AD%A3%E5%88%99-1/" class="article-date">
   <time datetime="2020-07-23T13:01:16.000Z" itemprop="datePublished">2020-07-23</time>
@@ -77,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/Python%E4%B8%8E%E6%AD%A3%E5%88%99-1/">Python与正则</a>
+    <h1 class="article-title" itemprop="name">
+      Python与正则
     </h1>
   
 
@@ -125,139 +127,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Markdown语法初探" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/23/Markdown%E8%AF%AD%E6%B3%95%E5%88%9D%E6%8E%A2/" class="article-date">
-  <time datetime="2020-07-23T06:06:56.000Z" itemprop="datePublished">2020-07-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/Markdown%E8%AF%AD%E6%B3%95%E5%88%9D%E6%8E%A2/">Markdown语法初探</a>
-    </h1>
+    <a href="/2020/07/23/Markdown%E8%AF%AD%E6%B3%95%E5%88%9D%E6%8E%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Markdown语法初探</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>斜体(使用 \</em>)*</p>
-<p><em>斜体(使用 \</em>)_</p>
-<p><strong>粗体(使用 **)</strong></p>
-<p><strong>粗体(使用 __)</strong></p>
-<p><em>**又粗又斜(组合 \</em> 与 **)**_</p>
-<ul>
-<li>无序的列表(使用 *与缩进)</li>
-<li>无序…<ul>
-<li>反复无序</li>
-<li>继续无序…<ul>
-<li>还有第三层无序</li>
-<li>怎么还有…</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>有序列表(使用 \1.)</li>
-<li>非常有序<ol>
-<li>看我缩进</li>
-<li>缩进还是有序的哦<ol>
-<li>第三层的有序列表</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p><img src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="Baidu Logo"></p>
-<p><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></p>
-<p><em>分割线(使用 **\</em>)*</p>
-<hr>
-<p>这是引用</p>
-<blockquote>
-<p>LawⅠ:A ROBOT MAY NOT INJURE A HUMAN BEING OR, THROUGH INACTION, ALLOW A HUMAN BEING TO COME TO HARM.</p>
-<p>LawⅡ:A ROBOT MUST OBEY ORDERS GIVEN IT BY HUMAN BEINGS EXCEPT WHERE SUCH ORDERS WOULD CONFLICT WITH THE FIRST LAW.</p>
-<p>LawⅢ:A ROBOT MUST PROTECT ITS OWN EXISTENCE AS LONG AS SUCH PROTECTION DOES NOT CONFLICT WITH THE FIRST OR SECOND LAW.</p>
-<p align="right">---Isaac Asimov</p>
-</blockquote>
-<p><em>分割线(使用 ---)</em></p>
-<hr>
-<p>In Python(使用 ``` 后加 “Python”)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello World, Hello Markdown!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3000</span>):</span><br><span class="line">  print(<span class="string">"I love you"</span> + str(i) + <span class="string">"times"</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/23/Markdown%E8%AF%AD%E6%B3%95%E5%88%9D%E6%8E%A2/" data-id="ckcyt1uul00005gut0du99loc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/23/hello-world/" class="article-date">
-  <time datetime="2020-07-23T02:15:43.563Z" itemprop="datePublished">2020-07-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/23/hello-world/" data-id="ckcyt1uus00025gut8807egfc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
