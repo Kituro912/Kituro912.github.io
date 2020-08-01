@@ -1028,7 +1028,7 @@ pre .javascript .function {
 }
 .brand {
   border-bottom: none;
-  color: var(--brand-color);
+  color: #fff;
   display: inline-block;
   line-height: 1.375em;
   padding: 0 40px;
@@ -1072,7 +1072,7 @@ pre .javascript .function {
 }
 .site-nav-toggle .toggle,
 .site-nav-right .toggle {
-  color: var(--text-color);
+  color: rgba(0,0,0,0) 0;
   padding: 10px;
   width: 22px;
 }
@@ -1118,6 +1118,7 @@ pre .javascript .function {
   display: block;
   font-size: 0.8125em;
   transition-property: border-color;
+  color: #000;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -1228,7 +1229,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1b4d70;
+  background: #cf7aff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2519,6 +2520,11 @@ body {
 }
 .sidebar {
   opacity: 0.85;
+}
+.sidebar p,
+.sidebar span,
+.sidebar a {
+  color: rgba(0,51,0,0) 0;
 }
 .header-inner {
   background: rgba(255,255,255,0.85);
