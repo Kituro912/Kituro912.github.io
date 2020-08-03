@@ -45,7 +45,21 @@
     lang   : 'zh-CN'
   };
 </script>
+ <!-- jquery -->
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+ <!-- live2d -->
+
+<div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="240" height="210" class="live2d"></canvas>
+</div>
+<script async src="/lib/poster-girl/waifu-tips.js"></script>
+<script src="/lib/poster-girl/live2d.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/assets/hijiki.model.json");
+</script>
   <title>Python之re库详解-2 | Kituro的个人小站</title>
   
 
@@ -167,7 +181,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="Kituro Lin">
-      <meta itemprop="description" content="不定期更新各类文章">
+      <meta itemprop="description" content="网络快乐屋">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -341,12 +355,12 @@
       </div>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel" style="display: block">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Kituro Lin"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Kituro Lin</p>
-  <div class="site-description" itemprop="description">不定期更新各类文章</div>
+  <div class="site-description" itemprop="description">网络快乐屋</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">

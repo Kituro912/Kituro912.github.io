@@ -21,12 +21,12 @@
   </script>
 
 
-  <meta name="description" content="不定期更新各类文章">
+  <meta name="description" content="网络快乐屋">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kituro的个人小站">
 <meta property="og:url" content="http://yoursite.com/archives/2020/07/index.html">
 <meta property="og:site_name" content="Kituro的个人小站">
-<meta property="og:description" content="不定期更新各类文章">
+<meta property="og:description" content="网络快乐屋">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Kituro Lin">
 <meta name="twitter:card" content="summary">
@@ -43,7 +43,21 @@
     lang   : 'zh-CN'
   };
 </script>
+ <!-- jquery -->
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+ <!-- live2d -->
+
+<div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="240" height="210" class="live2d"></canvas>
+</div>
+<script async src="/lib/poster-girl/waifu-tips.js"></script>
+<script src="/lib/poster-girl/live2d.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/assets/hijiki.model.json");
+</script>
   <title>归档 | Kituro的个人小站</title>
   
 
@@ -292,12 +306,12 @@
       </div>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel" style="display: block">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Kituro Lin"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Kituro Lin</p>
-  <div class="site-description" itemprop="description">不定期更新各类文章</div>
+  <div class="site-description" itemprop="description">网络快乐屋</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
