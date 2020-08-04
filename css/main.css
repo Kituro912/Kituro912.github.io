@@ -271,9 +271,9 @@ video {
   max-width: 100%;
 }
 hr {
-  background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
+  background-image: url("/images/LORYHOUA.png");
   border: 0;
-  height: 3px;
+  height: 10px;
   margin: 40px 0;
 }
 blockquote {
@@ -1229,7 +1229,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffffc7;
+  background: #ff08ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

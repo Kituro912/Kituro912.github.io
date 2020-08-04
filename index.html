@@ -204,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-27 21:31:04" itemprop="dateModified" datetime="2020-07-27T21:31:04+08:00">2020-07-27</time>
+                <time title="修改时间：2020-08-04 19:51:45" itemprop="dateModified" datetime="2020-08-04T19:51:45+08:00">2020-08-04</time>
               </span>
 
           
@@ -228,51 +228,15 @@
 <p>This is an extension notation (a '?' following a '(' is not meaningful otherwise). The first character after the '?' determines what the meaning and further syntax of the construct is. Extensions usually do not create a new group; (?P<name>...) is the only exception to this rule. Following are the currently supported extensions.</p>
 </blockquote>
 <p>简而言之,"?"(问号)的意思仅仅是<strong>扩展的标识符</strong>(表明括号内是一个正则表达式的扩展),没有实际意义</p>
-<ul>
-<li><p><code>(?aiLmsux)</code><br />
-每次使用正则时,如果需要输入flag(例如不区分大小写),总是要在参数里写上长长的flag<br />
-一个flag还好,如果有多个flag,那输入起来确实十分难受,于是这个扩展应运而生<br />
-这是一个很有意思的扩展,具体使用方法为在问号后加上<strong>特定的字母</strong><br />
-这里的字母指代的是<strong>re库里的各种flag(模式标识符)</strong><br />
-注意,<code>(?aiLmsux)</code>中的"aiLmsux"是你能填入括号中的<strong>字母</strong>,每个字母都有与其对应的flag<br />
-填其他的的字母会报错.同时,这个扩展<strong>必须写在正则表达式的开头</strong>:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">  re1 = <span class="string">r'(?mi)j'</span> <span class="comment">#Correct</span></span><br><span class="line">  re2 = <span class="string">r'j(?mi)'</span> <span class="comment">#Incorrect</span></span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">例如<span class="string">"re.IGNORECASE"</span>(不区分大小写)的标识符简写为<span class="string">"i"</span>,这里有个例子:   </span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">  <span class="comment">#这两段正则表达式的意思都是忽略大小写(IGNORECASE)并且跨行(MULTILINE)匹配 "J"这个字母</span></span><br><span class="line">  <span class="comment">#"i"为"IGNORECASE"的标识符,"m"为"MULTILINE"的标识符</span></span><br><span class="line">  foo = re.compile(<span class="string">r'(?mi)j'</span>)</span><br><span class="line">  bar = re.compile(<span class="string">r'j'</span>,re.IGNORECASE|re.MULTILINE) <span class="comment">#bar明显比foo长的许多</span></span><br><span class="line"></span><br><span class="line">  s1 = <span class="string">'''j</span></span><br><span class="line"><span class="string">          J '''</span></span><br><span class="line"></span><br><span class="line">  s2 = <span class="string">'''J</span></span><br><span class="line"><span class="string">          j'''</span></span><br><span class="line"></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  可以看出,foo和bar的效果是相同的,"(?aiLmsux)"为我们省了不少精力</span></span><br><span class="line"><span class="string">  '''</span>                    <span class="comment">#Outputs:</span></span><br><span class="line">  print(foo.findall(s1)) <span class="comment">#['j', 'J']</span></span><br><span class="line">  print(foo.findall(s2)) <span class="comment">#['J', 'j']</span></span><br><span class="line">  print(bar.findall(s1)) <span class="comment">#['j', 'J']</span></span><br><span class="line">  print(bar.findall(s2)) <span class="comment">#['J', 'j']</span></span><br></pre></td></tr></table></figure>
-<p>具体的标识符对应的flag列表请到<a href="&#39;https://docs.python.org/3.8/library/re.html?#contents-of-module-re&#39;">这里</a>查看</p></li>
-<li><p><code>(?:...)</code><br />
-还记得正则中小括号的特性吗,在带有小括号"( )"的的正则表达式中,匹配字符串后<strong>只会返回括号内的内容</strong><br />
-但(?:...)却会返回匹配到的一整个捕获组,如下面的例子: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">foo = re.compile(<span class="string">r"J(?:ac)k"</span>) <span class="comment">#注意使用了 "(?:...)"</span></span><br><span class="line">bar = re.compile(<span class="string">r"J(ac)k"</span>)</span><br><span class="line"></span><br><span class="line">s1 = <span class="string">"Jack"</span></span><br><span class="line"></span><br><span class="line">print(foo.findall(s1)) <span class="comment">#['Jack'] 返回了一整个匹配到的字符串</span></span><br><span class="line">print(bar.findall(s1)) <span class="comment">#['ac'] 只返回了括号里的内容</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>(?aiLmsux-imsx:…)</code> 乍一看好像和刚刚介绍的扩展"(?aiLmsux)"长得差不多<br />
-但扩展"(?aiLmsux)"是作用于整个正则表达式,而"(?aiLmsux-imsx:…)"则仅仅作用于括号内的子表达式,例如:<br />
-<code>re = r'(?m)Hello(?i:Python)'</code><br />
-其中m(MULTILINE)<strong>作用于整个正则表达式</strong>,而括号内的"i"(IGNORECASE)则<strong>只作用于"Python"这个子表达式上</strong> 也就是说,匹配时只有"Python"这个子字符串不区分大小写,而前面的"Hello"是区分大小写的.<br />
-同时,这<strong>整个正则表达式</strong>是支持跨行匹配的</p>
-<p>对于子字符串,如果你不想使用整个正则表达式的flag,也可以使用"(?-imsx:...)"的扩展,例如:<br />
-<code>re = r'(?i)Hello(?-i:Python)'</code><br />
-同理,前面的"Hello"是不区分大小写的,而因为使用了"(?-i:...)",所以后面的"Python"是区分大小写的<br />
-在子表达式中,"-i" <strong>相当于不使用IGNORECASE</strong><br />
-例子:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo = re.compile(<span class="string">r'Lucy(?i:Jack)'</span>)</span><br><span class="line">bar = re.compile(<span class="string">r'(?i)Lucy(?-i:Jack)'</span>)</span><br><span class="line"></span><br><span class="line">s1 = <span class="string">"LucyJACK"</span></span><br><span class="line">s2 = <span class="string">"LUCYJack"</span></span><br><span class="line">                        <span class="comment">#Outputs:</span></span><br><span class="line">print(foo.findall(s1)) <span class="comment">#['LucyJACK']</span></span><br><span class="line">print(bar.findall(s2)) <span class="comment">#['LUCYJack']</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>(?P\&lt;name&gt;...)</code><br />
-使用这个扩展,可以给捕获组命名,请看例子:<br />
-假设我们碰到了一个问题:使用正则表达式来解析一组格式特定的多项式,效果如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">input_1 = <span class="string">"3+4=7"</span></span><br><span class="line">input_2 = <span class="string">"2+6=8"</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">#要求输出:</span></span><br><span class="line">output_1 = [(<span class="string">'NUM'</span>, <span class="string">'3'</span>), (<span class="string">'PLUS'</span>, <span class="string">'+'</span>), (<span class="string">'NUM'</span>, <span class="string">'4'</span>), (<span class="string">'EQ'</span>, <span class="string">'='</span>), (<span class="string">'NUM'</span>, <span class="string">'7'</span>)]</span><br><span class="line">output_2 = [(<span class="string">'NUM'</span>, <span class="string">'2'</span>), (<span class="string">'PLUS'</span>, <span class="string">'+'</span>), (<span class="string">'NUM'</span>, <span class="string">'6'</span>), (<span class="string">'EQ'</span>, <span class="string">'='</span>), (<span class="string">'NUM'</span>, <span class="string">'8'</span>)]</span><br></pre></td></tr></table></figure>
-<p>我们可以使用正则表达式中的<strong>命名组合</strong><code>(?P&lt;name&gt;...)</code>,用法是在尖括号内填入名称,在尖括号后填入表达式,注意命名组合<strong>需要用小括号括起来</strong>(可以命名多个组)<br />
-这样就可以给捕获组(group)命名,从而更方便的进行归类,你可以使用<code>.groupdict()</code>方法来查看捕获组的名称和对应的捕获组(这是一个字典),也可以使用<code>.group()</code>方法,通过在方法的参数中传入捕获组的名称来获取内容</p>
-<p>例如<code>(?P&lt;NUM&gt;\d+)</code>就定义了一个可以匹配任意数字,名为"NUM"的捕获组:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo = re.compile(<span class="string">r'(?P&lt;NUM&gt;\d+)'</span>)</span><br><span class="line"></span><br><span class="line">s1 = <span class="string">"42"</span></span><br><span class="line"></span><br><span class="line">foo.match(s1).groupdict()</span><br><span class="line"><span class="comment">#Output: &#123;"NUM":"42"&#125;</span></span><br><span class="line">foo.match(s1).group(<span class="string">"NUM"</span>)</span><br><span class="line"><span class="comment">#output: 42</span></span><br></pre></td></tr></table></figure>
-<p>同时,你也可以使用<code>(?P=name)</code>在同一个正则表达式里<strong>引用</strong>定义过的命名组合,例:<br />
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这是匹配用两个引号括起来的字符串的正则表达式</span></span><br><span class="line">foo = re.compile(<span class="string">r'(?P&lt;quote&gt;\").*?(?P=quote)'</span>)</span><br><span class="line"><span class="comment">#这里(?P=quote)是对前面命名组合的引用,其实就是指"(?P&lt;quote&gt;\")"这个表达式   </span></span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">注意,`<span class="string">r'(?P&lt;quote&gt;\").*?(?P=quote)'</span>`其实完全等价与`<span class="string">r'(\".*?\")'</span>`</span><br><span class="line"></span><br><span class="line">还有一点需要特别注意,如果使用了`(?P=name)`进行引用,则引用匹配到的内容必须与`(?P&lt;name&gt;...)`匹配的内容**完全一致**,否则不会匹配,例如:   </span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="comment">#匹配两个中间由空格分开的数字</span></span><br><span class="line">foo = re.compile(<span class="string">r'(?P&lt;NUM&gt;\d+) (?P+NUM)'</span>)</span><br><span class="line"></span><br><span class="line">s1 = <span class="string">"42 56"</span> <span class="comment">#引用匹配"56"</span></span><br><span class="line">s2 = <span class="string">"42 42"</span></span><br><span class="line"></span><br><span class="line">print(foo.findall(s1)) <span class="comment">#[] 引用匹配到的内容必须与(?P&lt;name&gt;...)匹配的内容一致,所有没有匹配</span></span><br><span class="line">print(foo.findall(s1)) <span class="comment">#["42 42"]</span></span><br></pre></td></tr></table></figure></p>
-<p>回到开头的解析多项式的问题,下面是实现代码:<br />
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">NUM = <span class="string">r'(?P&lt;NUM&gt;\d+)'</span></span><br><span class="line">PLUS = <span class="string">r'(?P&lt;PLUS&gt;\+)'</span></span><br><span class="line">EQ = <span class="string">r'(?P&lt;EQ&gt;=)'</span></span><br><span class="line"></span><br><span class="line">parser = re.compile(<span class="string">r'|'</span>.join([NUM, PLUS, EQ]))</span><br><span class="line"></span><br><span class="line">s1 = <span class="string">"2+6=8"</span></span><br><span class="line"></span><br><span class="line">result_list = []</span><br><span class="line"><span class="keyword">for</span> ch <span class="keyword">in</span> s1:</span><br><span class="line">    match_dict = parser.match(ch).groupdict() <span class="comment">#注意这个正则表达式一次只匹配一个字符</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> match_dict.keys():</span><br><span class="line">        <span class="keyword">if</span> match_dict[item] != <span class="literal">None</span>:</span><br><span class="line">            result_list.append((item,match_dict[item]))</span><br><span class="line"></span><br><span class="line">print(result_list)</span><br><span class="line"><span class="comment">#Output: [('NUM', '2'), ('PLUS', '+'), ('NUM', '6'), ('EQ', '='), ('NUM', '8')]</span></span><br></pre></td></tr></table></figure> 虽然实现过程挺丑陋的,但也算展示了命名组合的一种用途吧</p></li>
-<li><p><code>(?#...)</code><br />
-这是正则表达式的注释,括号内的内容会被忽略</p></li>
-<li><p><code>(?=...)</code>与<code>(?!...)</code><br />
-它们的用法差不多,<code>(?=...)</code>返回括号前的内容,但只有括号前的内容满足一定条件时才会匹配,例如:<br />
-<code>Issac (?=Asimov)</code><strong>只有在Issac后面跟着Asimov</strong>时才会匹配,并返回<code>Issac</code><br />
-<code>(?!...)</code>的意思相反,例如<code>Issac (?!Asimov)</code>只有在Issac<strong>不</strong>跟着Asimov时才会匹配,并返回<code>Issac</code></p></li>
-<li></li>
-</ul>
-
+<p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/26/Python%E4%B9%8Bre%E5%BA%93%E8%AF%A6%E8%A7%A3-2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -592,11 +556,11 @@ LawⅢ:A ROBOT MUST PROTECT ITS OWN EXISTENCE AS LONG AS SUCH PROTECTION DOES NO
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2020 Kituro</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Kituro Lin</span>
+  <span class="author" itemprop="copyrightHolder">LRX</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
