@@ -1229,7 +1229,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff08ff;
+  background: #ff8681;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2550,6 +2550,9 @@ body {
   .waifu {
     display: none;
   }
+  img {
+    opacity: 1;
+  }
 }
 .waifu-tips {
   opacity: 0;
@@ -3180,5 +3183,10 @@ body {
   }
   0%, 100% {
     transform: translate(0, 0) rotate(0);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: 1;
   }
 }
